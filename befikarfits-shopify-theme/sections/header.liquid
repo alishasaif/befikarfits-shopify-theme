@@ -1,0 +1,69 @@
+<header>
+  <div class="top-bar">
+    <div class="brand">
+      <h1>BefikarFits</h1>
+      <span>Wear the vibe, not the rules</span>
+    </div>
+    <div class="icons">
+      <a href="#"><i class="fas fa-search"></i></a>
+      <a href="#"><i class="fas fa-heart"></i></a>
+      <a href="#"><i class="fas fa-shopping-cart"></i></a>
+      <a href="#" onclick="openLoginModal()"><i class="fas fa-user"></i></a>
+    </div>
+  </div>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/collections/oversized-tees">Oversized Tees</a>
+    <a href="/collections/regular-fit-tees">Regular Fit Tees</a>
+    <a href="/collections/winter-collection">Winter Collection</a>
+    <a href="/collections/all">Shop</a>
+  </nav>
+</header>
+
+<!-- LOGIN MODAL -->
+<div id="loginModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <div id="loginForm">
+      <h2>Login</h2>
+      <form onsubmit="alert('✅ Login Successful!'); closeModal(); return false;">
+        <input type="email" placeholder="Email address" required>
+        <input type="password" placeholder="Password" required>
+        <button type="submit">Login</button>
+      </form>
+      <p>Don’t have an account? <a href="#" onclick="showSignup()">Sign up</a></p>
+    </div>
+    <div id="signupForm" style="display:none;">
+      <h2>Sign Up</h2>
+      <form onsubmit="alert('✅ Sign Up Successful!'); closeModal(); return false;">
+        <input type="email" placeholder="Email address" required>
+        <input type="password" placeholder="Password" required>
+        <input type="password" placeholder="Confirm password" required>
+        <button type="submit">Sign Up</button>
+      </form>
+      <p>Already have an account? <a href="#" onclick="showLogin()">Login</a></p>
+    </div>
+  </div>
+</div>
+
+<script>
+function openLoginModal() {
+  document.getElementById('loginModal').style.display = 'block';
+}
+function closeModal() {
+  document.getElementById('loginModal').style.display = 'none';
+}
+function showSignup() {
+  document.getElementById('loginForm').style.display = 'none';
+  document.getElementById('signupForm').style.display = 'block';
+}
+function showLogin() {
+  document.getElementById('signupForm').style.display = 'none';
+  document.getElementById('loginForm').style.display = 'block';
+}
+window.onclick = function(event) {
+  if (event.target == document.getElementById('loginModal')) {
+    closeModal();
+  }
+}
+</script>

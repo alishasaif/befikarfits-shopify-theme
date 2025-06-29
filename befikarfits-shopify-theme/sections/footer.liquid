@@ -1,0 +1,84 @@
+<footer>
+  <div class="footer-container">
+    <div class="footer-block logo-block">
+      <img src="{{ 'BEFIKARFITS-LOGO.png' | asset_url }}" alt="BefikarFits Logo" style="max-width: 120px;">
+    </div>
+    <div class="footer-block">
+      <h4>SUPPORT</h4>
+      <a href="#" onclick="openContactModal()">Contact Us</a>
+      <a href="#" onclick="openReturnsModal()">Returns & Refund Policy</a>
+    </div>
+    <div class="footer-block">
+      <h4>COMPANY</h4>
+      <a href="#" onclick="openTermsModal()">Terms & Conditions</a>
+      <a href="#" onclick="openPrivacyModal()">Privacy & Cookie Policy</a>
+    </div>
+    <div class="footer-block">
+      <h4>CONTACT</h4>
+      <p>befikarfits@gmail.com</p>
+    </div>
+    <div class="footer-social">
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-youtube"></i></a>
+      <a href="#"><i class="fab fa-telegram"></i></a>
+    </div>
+  </div>
+</footer>
+
+<!-- Popup MODALS -->
+<div id="popupModal" class="modal">
+  <div class="modal-content" id="popupContent">
+    <span class="close" onclick="closePopup()">&times;</span>
+    <div id="popupBody"></div>
+  </div>
+</div>
+
+<script>
+function openContactModal() {
+  document.getElementById('popupBody').innerHTML = `
+    <h2>Contact Us</h2>
+    <form onsubmit="alert('✅ Message sent!'); closePopup(); return false;">
+      <input type="text" placeholder="Name" required><br>
+      <input type="email" placeholder="Email address" required><br>
+      <input type="text" placeholder="Contact Number" required><br>
+      <textarea placeholder="Complaint / Message" required></textarea><br>
+      <input type="file" accept=".jpg" onchange="if(this.files[0].size>5*1024*1024){alert('File too large. Max 5MB.'); this.value='';}">
+      <br><button type="submit">Submit</button>
+    </form>
+  `;
+  document.getElementById('popupModal').style.display = 'block';
+}
+
+function openReturnsModal() {
+  document.getElementById('popupBody').innerHTML = `
+    <h2>Refund and Returns Policy</h2>
+    <p>We have a 7-day return policy, which means you have 7 days after receiving your item to request a return. To be eligible, item must be in original condition with tags and packaging. Contact us at befikarfits@gmail.com.</p>
+    <p>Returns accepted only for damaged or wrong items. Handling fee Rs.150 applies. Refunds processed within 10 business days.</p>
+  `;
+  document.getElementById('popupModal').style.display = 'block';
+}
+
+function openTermsModal() {
+  document.getElementById('popupBody').innerHTML = `
+    <h2>Terms & Conditions</h2>
+    <p>By using our site, you agree to our terms. Products must be used as intended. Returns & exchanges subject to our policy.</p>
+  `;
+  document.getElementById('popupModal').style.display = 'block';
+}
+
+function openPrivacyModal() {
+  document.getElementById('popupBody').innerHTML = `
+    <h2>Privacy & Cookie Policy</h2>
+    <p>Your data is safe with us. We do not sell your personal information. Cookies used for better experience.</p>
+  `;
+  document.getElementById('popupModal').style.display = 'block';
+}
+
+function closePopup() {
+  document.getElementById('popupModal').style.display = 'none';
+}
+window.onclick = function(e) {
+  if (e.target == document.getElementById('popupModal')) closePopup();
+}
+</script>

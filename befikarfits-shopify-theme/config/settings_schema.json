@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Theme settings",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Logo"
+      },
+      {
+        "type": "color",
+        "id": "primary_color",
+        "label": "Primary Color",
+        "default": "#000000"
+      },
+      {
+        "type": "color",
+        "id": "accent_color",
+        "label": "Accent Color",
+        "default": "#ffd700"
+      },
+      {
+        "type": "text",
+        "id": "brand_tagline",
+        "label": "Brand Tagline",
+        "default": "Wear the vibe, not the rules"
+      }
+    ]
+  }
+]
