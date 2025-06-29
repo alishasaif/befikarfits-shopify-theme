@@ -1,0 +1,17 @@
+<!-- templates/product.liquid -->
+{% layout 'theme' %}
+
+<div class="product-page">
+  <div class="product-image">
+    <img src="{{ product.featured_image | img_url: 'large' }}" alt="{{ product.title }}">
+  </div>
+  <div class="product-details">
+    <h1>{{ product.title }}</h1>
+    <p class="price">{{ product.price | money }}</p>
+    <div class="description">{{ product.description }}</div>
+    <form action="/cart/add" method="post" enctype="multipart/form-data">
+      <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+      <button type="submit">Add to Cart</button>
+    </form>
+  </div>
+</div>
